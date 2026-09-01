@@ -1,0 +1,10 @@
+node_modules
+dist
+.vercel
+.env
+.env.local
+.DS_Store
+*.log
+
+public/assets/menu/_calib/
+public/assets/menu/_source-menu.jpeg

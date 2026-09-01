@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es" data-theme="day">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Menú colorido Sushi Valizas: combinados y rolls. Pedí take away por WhatsApp." />
+    <title>Menú | Sushi Valizas</title>
+    <link rel="icon" href="/assets/brand/sushi-valizas.webp" type="image/webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body data-page="menu" class="page-inner page-menu">
+    <div id="site-header"></div>
+    <main>
+      <section class="menu-splash">
+        <div class="rainbow-bar" aria-hidden="true"></div>
+        <div class="container menu-splash-inner reveal">
+          <p class="eyebrow" data-i18n="menu.eyebrow">La carta</p>
+          <h1 data-i18n="menu.title">Menú Sushi Valizas</h1>
+          <p class="page-hero-lead" data-i18n="menu.lead">
+            Combinados para compartir y rolls de 10 piezas. Pedí take away o disfrutalo en mesa.
+          </p>
+          <p class="menu-badge" data-i18n="menu.discount">10% OFF huéspedes Valizas Hostel</p>
+          <p class="menu-wa" data-i18n="menu.waHint">WP Take Away 094 873 428</p>
+        </div>
+      </section>
+
+      <section class="section carousel-section carousel-section--menu">
+        <div class="container">
+          <div class="carousel reveal" data-carousel>
+            <button type="button" class="carousel-nav carousel-nav--prev" data-carousel-prev aria-label="Anterior">‹</button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" data-carousel-track></div>
+            </div>
+            <button type="button" class="carousel-nav carousel-nav--next" data-carousel-next aria-label="Siguiente">›</button>
+            <div class="carousel-dots" data-carousel-dots></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section menu-section">
+        <div class="container">
+          <header class="menu-block-head reveal">
+            <h2 data-i18n="menu.combos">Combinados</h2>
+            <p data-i18n="menu.combosLead">Para compartir. Ideal para parejas, grupos y noche de hostel.</p>
+          </header>
+          <div class="combo-grid" id="combo-grid"></div>
+        </div>
+      </section>
+
+      <section class="section menu-hot">
+        <div class="container menu-hot-inner reveal">
+          <div>
+            <p class="eyebrow">Hot</p>
+            <h2 data-i18n="menu.hot">Hoy toca hot roll</h2>
+            <p data-i18n="menu.hotLead">El crocante que no falla. Pedilo take away.</p>
+            <a class="btn btn-primary" data-add-cart data-id="roll-hot" data-name="Hot Roll" data-price="400" data-i18n="cart.add">Agregar</a>
+          </div>
+          <img src="/assets/promo/hot-roll.webp" alt="Hot roll" loading="lazy" />
+        </div>
+      </section>
+
+      <section class="section menu-section">
+        <div class="container">
+          <header class="menu-block-head reveal">
+            <div>
+              <h2 data-i18n="menu.rolls">Por roll</h2>
+              <p data-i18n="menu.rollsLead">Elegí tu favorito o armá tu propio combinado pidiendo varios rolls.</p>
+            </div>
+            <p class="roll-meta roll-meta--pop" data-i18n="menu.rollMeta">$400 · 10 piezas</p>
+          </header>
+          <div class="roll-grid" id="roll-grid"></div>
+        </div>
+      </section>
+    </main>
+    <div id="site-footer" class="site-footer"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

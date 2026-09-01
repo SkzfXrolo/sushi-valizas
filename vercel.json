@@ -1,0 +1,20 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/rocha", "destination": "/rocha.html" },
+    { "source": "/menu", "destination": "/menu.html" },
+    { "source": "/fotos", "destination": "/fotos.html" },
+    { "source": "/sushimen", "destination": "/sushimen.html" },
+    { "source": "/reservas", "destination": "/reservas.html" },
+    { "source": "/contacto", "destination": "/contacto.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
