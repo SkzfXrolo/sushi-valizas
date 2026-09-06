@@ -25,7 +25,7 @@ function buildOrderMessage(form) {
     `Tel: ${form.phone}`,
     `Modalidad: ${mode}`,
     '',
-    '*Sushi*',
+    '*Pedido*',
     ...lines,
     '',
     `*Total: ${money(cartTotal())}*`,

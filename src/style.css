@@ -1744,7 +1744,12 @@ body.cart-open .cart-drawer {
   }
 
   .person--photo {
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+  .person--photo .person-photo {
+    max-width: 320px;
+    justify-self: center;
   }
 
   .hero-inner {
