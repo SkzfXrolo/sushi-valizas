@@ -16,7 +16,7 @@ function renderMenu() {
   const rollGrid = document.getElementById('roll-grid')
   if (!comboGrid || !rollGrid) return
 
-  const comboColors = ['coral', 'mango', 'wasabi']
+  const comboColors = ['coral', 'mango', 'wasabi', 'ocean']
   comboGrid.innerHTML = MENU.combos
     .map(
       (c, i) => `
