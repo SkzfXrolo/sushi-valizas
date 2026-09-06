@@ -1,7 +1,6 @@
 const DISHES = [
-  { src: '/assets/gallery/caja-rolls.webp', alt: 'Caja de rolls Valizas con menta y flores comestibles' },
-  { src: '/assets/gallery/live-01.webp', alt: 'Combinado Sushi Valizas' },
   { src: '/assets/gallery/mesa-noche.webp', alt: 'Mesa de sushi para compartir, noche de hostel' },
+  { src: '/assets/gallery/live-01.webp', alt: 'Combinado Sushi Valizas' },
   { src: '/assets/gallery/live-02.webp', alt: 'Rolls con salsa' },
   { src: '/assets/gallery/live-03.webp', alt: 'Combinado en pizarra' },
   { src: '/assets/gallery/live-04.webp', alt: 'Hot rolls' },

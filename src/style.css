@@ -302,7 +302,10 @@ a {
 .page-hero--photo {
   position: relative;
   isolation: isolate;
-  padding: 5.5rem 0 4rem;
+  display: flex;
+  align-items: center;
+  min-height: clamp(340px, 48vh, 480px);
+  padding: 4rem 0;
   background: #17100e;
   border-bottom: 0;
   color: #fdf6ef;
@@ -623,7 +626,7 @@ html[data-theme='night'] .contact-card--rich a {
 }
 
 .combo-card .menu-thumb {
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
 }
 
