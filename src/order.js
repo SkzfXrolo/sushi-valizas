@@ -188,6 +188,30 @@ function mountCartUi() {
   renderCartPanel()
 }
 
+let toastTimer
+function flashAdded(name) {
+  let toast = document.querySelector('.cart-toast')
+  if (!toast) {
+    toast = document.createElement('button')
+    toast.type = 'button'
+    toast.className = 'cart-toast'
+    toast.addEventListener('click', openCart)
+    document.body.appendChild(toast)
+  }
+  toast.textContent = `✓ ${name}`
+  toast.classList.remove('is-visible')
+  void toast.offsetWidth // force reflow so the transition re-runs
+  toast.classList.add('is-visible')
+  clearTimeout(toastTimer)
+  toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2400)
+
+  document.querySelectorAll('.cart-fab, .mobile-bar-btn--cart').forEach((el) => {
+    el.classList.remove('is-bump')
+    void el.offsetWidth
+    el.classList.add('is-bump')
+  })
+}
+
 export function initCartSystem() {
   mountCartUi()
 
@@ -205,7 +229,7 @@ export function initCartSystem() {
       price: Number(btn.dataset.price),
       qty: 1,
     })
-    openCart()
+    flashAdded(btn.dataset.name)
   })
 }
 

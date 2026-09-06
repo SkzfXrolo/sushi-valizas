@@ -7,7 +7,37 @@ const NAV = [
   { href: '/contacto', key: 'nav.contact', page: 'contacto' },
 ]
 
+function mountIntro() {
+  // Mobile-only welcome moment, once per session. CSS hides it on desktop
+  // and for prefers-reduced-motion; a CSS keyframe auto-dismisses it even
+  // if this JS never runs.
+  if (window.matchMedia('(min-width: 769px), (prefers-reduced-motion: reduce)').matches) return
+  let seen = false
+  try {
+    seen = sessionStorage.getItem('sv-intro') === '1'
+    sessionStorage.setItem('sv-intro', '1')
+  } catch {
+    /* private mode — just show it */
+  }
+  if (seen) return
+  const intro = document.createElement('div')
+  intro.className = 'intro'
+  intro.setAttribute('aria-hidden', 'true')
+  intro.innerHTML = `
+    <div class="intro-inner">
+      <img class="intro-logo" src="/assets/brand/sushi-valizas.webp" alt="" />
+      <p class="intro-title">Sushi Valizas</p>
+      <p class="intro-tag">Come rico, come local</p>
+      <div class="intro-line"></div>
+    </div>
+  `
+  intro.addEventListener('click', () => intro.classList.add('is-dismissed'))
+  document.body.prepend(intro)
+  setTimeout(() => intro.remove(), 3600)
+}
+
 export function mountShell() {
+  mountIntro()
   const page = document.body.dataset.page || 'home'
   const header = document.getElementById('site-header')
   const footer = document.getElementById('site-footer')

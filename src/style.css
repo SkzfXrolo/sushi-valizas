@@ -1429,6 +1429,157 @@ html[data-theme='night'] .contact-card--rich .contact-link {
   transition: opacity 0.25s ease;
 }
 
+/* "Agregado" toast + cart bump (replaces auto-opening the drawer) */
+.cart-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 5.6rem;
+  z-index: 90;
+  border: 0;
+  padding: 0.7rem 1.15rem;
+  border-radius: 999px;
+  background: #17100e;
+  color: #fdf6ef;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  max-width: calc(100vw - 2rem);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translate(-50%, 14px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  cursor: pointer;
+}
+.cart-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+@media (min-width: 769px) {
+  .cart-toast {
+    left: auto;
+    right: 1.4rem;
+    bottom: 5.2rem;
+    transform: translateY(14px);
+  }
+  .cart-toast.is-visible {
+    transform: translateY(0);
+  }
+}
+@keyframes cartBump {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(1.13);
+  }
+}
+.cart-fab.is-bump,
+.mobile-bar-btn--cart.is-bump {
+  animation: cartBump 0.42s ease;
+}
+
+/* Mobile-only welcome intro */
+.intro {
+  display: none;
+}
+@media (max-width: 768px) {
+  .intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    background: #17100e;
+    animation: introOut 0.55s ease 2.3s forwards;
+  }
+  .intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/assets/gallery/mesa-noche.webp') center / cover no-repeat;
+    opacity: 0.3;
+    filter: blur(3px);
+  }
+  .intro::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 42%, rgba(23, 16, 14, 0.25), rgba(23, 16, 14, 0.92));
+  }
+  .intro-inner {
+    position: relative;
+    text-align: center;
+    color: #fdf6ef;
+    padding: 0 2rem;
+    animation: introIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .intro-logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 12px 44px rgba(0, 0, 0, 0.55);
+  }
+  .intro-title {
+    margin: 0.9rem 0 0;
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    line-height: 1;
+  }
+  .intro-tag {
+    margin: 0.55rem 0 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ffbf95;
+  }
+  .intro-line {
+    width: 44px;
+    height: 2px;
+    margin: 1.1rem auto 0;
+    background: #ffbf95;
+    transform-origin: center;
+    animation: introLine 0.6s ease 0.45s both;
+  }
+  .intro.is-dismissed {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+}
+@keyframes introIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes introLine {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes introOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .intro {
+    display: none !important;
+  }
+}
+
 /* Mobile-only sticky action bar */
 .mobile-bar {
   display: none;
