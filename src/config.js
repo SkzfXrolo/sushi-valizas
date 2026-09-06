@@ -2,7 +2,7 @@ export const SITE = {
   name: 'Sushi Valizas',
   slogan: 'Come rico, come local',
   by: 'Valizas Hostel',
-  hostelUrl: 'https://hostel-valizas.vercel.app',
+  hostelUrl: 'https://valizashostel.com',
   instagram: 'https://www.instagram.com/sushivalizas/',
   instagramHandle: '@sushivalizas',
   phoneDisplay: '094 873 428',
