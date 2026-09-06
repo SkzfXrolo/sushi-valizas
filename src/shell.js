@@ -43,4 +43,20 @@ export function mountShell() {
       <span data-i18n="footer.rights">Sushi Valizas</span>
     </div>
   `
+
+  // Mobile-only sticky action bar (CSS hides it on desktop)
+  if (!document.querySelector('.mobile-bar')) {
+    const bar = document.createElement('div')
+    bar.className = 'mobile-bar'
+    bar.setAttribute('aria-label', 'Acciones rápidas')
+    bar.innerHTML = `
+      <a class="mobile-bar-btn mobile-bar-btn--wa" data-cta="takeaway" href="#" target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">💬</span><span data-i18n="bar.order">Pedí take away</span>
+      </a>
+      <button type="button" class="mobile-bar-btn mobile-bar-btn--cart" data-cart-open>
+        <span aria-hidden="true">🛒</span><span data-i18n="bar.cart">Carrito</span><span class="mobile-bar-total" data-bar-total hidden></span>
+      </button>
+    `
+    document.body.appendChild(bar)
+  }
 }

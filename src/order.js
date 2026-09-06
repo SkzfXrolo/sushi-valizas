@@ -89,11 +89,17 @@ function renderCartPanel() {
 }
 
 function updateBadge() {
-  const badge = document.querySelector('[data-cart-count]')
   const n = cartCount()
-  if (!badge) return
-  badge.textContent = String(n)
-  badge.hidden = n === 0
+  const badge = document.querySelector('[data-cart-count]')
+  if (badge) {
+    badge.textContent = String(n)
+    badge.hidden = n === 0
+  }
+  const barTotal = document.querySelector('[data-bar-total]')
+  if (barTotal) {
+    barTotal.textContent = n ? `· ${money(cartTotal())}` : ''
+    barTotal.hidden = n === 0
+  }
 }
 
 function mountCartUi() {
@@ -142,7 +148,6 @@ function mountCartUi() {
   `
   document.body.appendChild(root)
 
-  root.querySelector('[data-cart-open]')?.addEventListener('click', openCart)
   root.querySelectorAll('[data-cart-close]').forEach((el) => el.addEventListener('click', closeCart))
 
   root.querySelector('#cart-list')?.addEventListener('click', (e) => {
@@ -187,6 +192,10 @@ export function initCartSystem() {
   mountCartUi()
 
   document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-cart-open]')) {
+      openCart()
+      return
+    }
     const btn = e.target.closest('[data-add-cart]')
     if (!btn) return
     e.preventDefault()
