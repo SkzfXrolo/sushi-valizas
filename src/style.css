@@ -456,11 +456,11 @@ html[data-theme='night'] .contact-card--rich a {
   max-width: 46ch;
 }
 
-.roll-meta--pop {
+.roll-meta.roll-meta--pop {
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
   background: #1a1210;
-  color: #ffe8d8;
+  color: #ffffff;
   font-weight: 700;
 }
 
