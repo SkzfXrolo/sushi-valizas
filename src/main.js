@@ -1,4 +1,4 @@
-import { SITE, MENU, waLink } from './config.js'
+import { SITE, MENU, DRINKS, waLink } from './config.js'
 import { applyI18n, getLang, setLang, t } from './i18n.js'
 import { initTheme, toggleTheme } from './theme.js'
 import { mountShell } from './shell.js'
@@ -22,7 +22,7 @@ function renderMenu() {
       (c, i) => `
       <article class="combo-card combo-card--${comboColors[i % comboColors.length]} reveal" style="--delay:${i * 100}ms">
         <img class="menu-thumb" src="${c.img}" alt="${t('menu.comboOf', { n: c.pieces })}" loading="lazy" />
-        <span class="combo-pieces">${t('menu.comboPieces', { n: c.pieces })}</span>
+        <span class="combo-pieces">${t('menu.comboPieces', { n: c.pieces })}${c.flavors ? ` · ${t('menu.comboFlavors', { n: c.flavors })}` : ''}</span>
         <strong>${t('menu.comboOf', { n: c.pieces })}</strong>
         <span class="price">${money(c.price)}</span>
         <button type="button" class="btn btn-primary btn-sm" data-add-cart
@@ -55,6 +55,41 @@ function renderMenu() {
 
   revealFresh(comboGrid)
   revealFresh(rollGrid)
+  renderDrinks()
+}
+
+function renderDrinks() {
+  const host = document.getElementById('drink-list')
+  if (!host) return
+  const lang = getLang()
+  const titles = { jugos: t('menu.drinkJugos'), soft: t('menu.drinkSoft') }
+  const byGroup = {}
+  for (const d of DRINKS) (byGroup[d.group] ||= []).push(d)
+  host.innerHTML = Object.entries(byGroup)
+    .map(
+      ([g, items]) => `
+      <div class="drink-group reveal">
+        <h3>${titles[g] || g}</h3>
+        <ul>
+          ${items
+            .map((d) => {
+              const nm = typeof d.name === 'string' ? d.name : d.name[lang] || d.name.es
+              const note = d.note ? `<span class="drink-note">${d.note[lang] || d.note.es}</span>` : ''
+              const thumb = d.img ? `<img class="drink-thumb" src="${d.img}" alt="${nm}" loading="lazy" />` : ''
+              return `<li class="drink-row${d.img ? ' drink-row--img' : ''}">
+                ${thumb}
+                <span class="drink-name">${nm}${note}</span>
+                <span class="drink-price">${money(d.price)}</span>
+                <button type="button" class="btn btn-ghost btn-sm" data-add-cart
+                  data-id="drink-${d.id}" data-name="${nm}" data-price="${d.price}">${t('cart.add')}</button>
+              </li>`
+            })
+            .join('')}
+        </ul>
+      </div>`,
+    )
+    .join('')
+  revealFresh(host)
 }
 
 function wireLinks() {

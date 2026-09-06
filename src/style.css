@@ -600,6 +600,63 @@ html[data-theme='night'] .combo-card .price {
   gap: 0.95rem;
 }
 
+.drink-group {
+  margin-top: 1.75rem;
+}
+.drink-group h3 {
+  margin: 0 0 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.drink-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.drink-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.drink-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: none;
+}
+.drink-name {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.drink-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.drink-price {
+  font-weight: 600;
+}
+@media (max-width: 560px) {
+  .drink-row {
+    flex-wrap: wrap;
+  }
+  .drink-name {
+    flex-basis: 100%;
+  }
+  .drink-row .btn-sm {
+    margin-left: auto;
+  }
+}
+
 .roll-card p {
   margin: 0.35rem 0 0;
   color: var(--muted);
