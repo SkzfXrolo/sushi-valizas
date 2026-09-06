@@ -13,7 +13,7 @@
   <body data-page="contacto" class="page-inner">
     <div id="site-header"></div>
     <main>
-      <section class="page-hero">
+      <section class="page-hero page-hero--photo" style="--hero-img: url('/assets/gallery/live-02.webp')">
         <div class="container reveal">
           <p class="eyebrow" data-i18n="contact.eyebrow">Contacto</p>
           <h1 data-i18n="contact.title">Pedí, reservá, seguinos</h1>
@@ -26,18 +26,22 @@
         <div class="container">
           <div class="contact-grid reveal-stagger">
             <article class="contact-card contact-card--rich">
+              <span class="contact-ico" aria-hidden="true">📸</span>
               <h2 data-i18n="contact.ig">Instagram</h2>
               <p data-i18n="contact.igLead">Dejá tu experiencia y mirá novedades, rolls de la semana y horarios.</p>
-              <a data-cta="ig" href="https://www.instagram.com/sushivalizas/">@sushivalizas</a>
+              <a class="contact-link" data-cta="ig" href="https://www.instagram.com/sushivalizas/">@sushivalizas&nbsp;→</a>
             </article>
             <article class="contact-card contact-card--rich">
+              <span class="contact-ico" aria-hidden="true">💬</span>
               <h2 data-i18n="contact.wa">WhatsApp Take Away</h2>
               <p data-i18n="contact.waLead">Pedidos, reservas de mesa y consultas del día.</p>
-              <a data-cta="takeaway" href="#">094 873 428</a>
+              <a class="contact-link" data-cta="takeaway" href="#">094 873 428&nbsp;→</a>
             </article>
             <article class="contact-card contact-card--rich">
+              <span class="contact-ico" aria-hidden="true">📱</span>
               <h2 data-i18n="contact.phone">Celular</h2>
-              <a data-phone-link href="tel:+59894873428">094 873 428</a>
+              <p data-i18n="contact.phoneCta">Para lo urgente, llamada directa.</p>
+              <a class="contact-link" data-phone-link href="tel:+59894873428">094 873 428</a>
               <p data-phone-pending hidden></p>
             </article>
           </div>
