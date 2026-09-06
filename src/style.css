@@ -298,6 +298,38 @@ a {
   font-size: 1.08rem;
 }
 
+/* Rocha hero — photo background */
+.page-hero--rocha {
+  position: relative;
+  isolation: isolate;
+  padding: 5.5rem 0 4rem;
+  background: #17100e;
+  border-bottom: 0;
+  color: #fdf6ef;
+  overflow: hidden;
+}
+.page-hero--rocha::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url('/assets/rocha/hero.webp') center / cover no-repeat;
+  filter: saturate(1.05);
+}
+.page-hero--rocha::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(175deg, rgba(23, 16, 14, 0.45) 20%, rgba(23, 16, 14, 0.88));
+}
+.page-hero--rocha .eyebrow {
+  color: #ffbf95;
+}
+.page-hero--rocha .page-hero-lead {
+  color: rgba(253, 246, 239, 0.86);
+}
+
 .guest-banner {
   margin-top: 2rem;
   padding: 1.25rem 1.35rem;
@@ -886,6 +918,67 @@ html[data-theme='night'] .combo-card .price {
 .pill span {
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+/* Rocha body — photo + text split */
+.rocha-split {
+  display: grid;
+  grid-template-columns: 0.82fr 1fr;
+  gap: 2.75rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.rocha-photo {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
+  transform: rotate(-1.4deg);
+}
+.rocha-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rocha-split-text .prose {
+  margin-bottom: 1.5rem;
+}
+.rocha-split-text .section-cta {
+  margin-top: 0;
+}
+
+/* Numbered principle pills */
+.pill-grid--numbered {
+  counter-reset: pill;
+}
+.pill-grid--numbered .pill {
+  counter-increment: pill;
+  padding-top: 2.9rem;
+}
+.pill-grid--numbered .pill strong::before {
+  content: counter(pill, decimal-leading-zero);
+  position: absolute;
+  top: 1.1rem;
+  left: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--coral);
+}
+.pill-grid--numbered .pill {
+  position: relative;
+}
+
+@media (max-width: 780px) {
+  .rocha-split {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .rocha-photo {
+    transform: none;
+    max-width: 420px;
+  }
 }
 
 .team-grid {
