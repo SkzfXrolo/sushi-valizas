@@ -313,7 +313,7 @@ a {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: url('/assets/rocha/hero.webp') center / cover no-repeat;
+  background: url('/assets/gallery/mesa-noche.webp') center / cover no-repeat;
   filter: saturate(1.05);
 }
 .page-hero--rocha::after {
@@ -730,6 +730,11 @@ html[data-theme='night'] .combo-card .price {
 .gallery-item--wide {
   grid-column: span 2;
   aspect-ratio: 16 / 10;
+}
+
+.gallery-item--tall {
+  grid-row: span 2;
+  aspect-ratio: 3 / 4;
 }
 
 .gallery-item img {
@@ -1609,6 +1614,11 @@ body.cart-open .cart-drawer {
   .gallery-item--wide {
     grid-column: auto;
     aspect-ratio: 16 / 10;
+  }
+
+  .gallery-item--tall {
+    grid-row: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .person--photo {
