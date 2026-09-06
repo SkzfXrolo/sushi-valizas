@@ -22,7 +22,7 @@ function renderMenu() {
       (c, i) => `
       <article class="combo-card combo-card--${comboColors[i % comboColors.length]} reveal" style="--delay:${i * 100}ms">
         <img class="menu-thumb" src="${c.img}" alt="${t('menu.comboOf', { n: c.pieces })}" loading="lazy" />
-        <span class="combo-pieces">${t('menu.comboPieces', { n: c.pieces })}${c.flavors ? ` · ${t('menu.comboFlavors', { n: c.flavors })}` : ''}</span>
+        <span class="combo-pieces">${t('menu.comboPieces', { n: c.pieces })}${c.flavors ? ` · ${c.flavors === 1 ? t('menu.comboFlavor1') : t('menu.comboFlavors', { n: c.flavors })}` : ''}</span>
         <strong>${t('menu.comboOf', { n: c.pieces })}</strong>
         <span class="price">${money(c.price)}</span>
         <button type="button" class="btn btn-primary btn-sm" data-add-cart

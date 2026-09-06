@@ -23,6 +23,7 @@ export const SITE = {
 /** Menu from brand materials (prices UYU) */
 export const MENU = {
   combos: [
+    { id: 'c10', pieces: 10, flavors: 1, price: 500, img: '/assets/menu/combo-10.webp' },
     { id: 'c20', pieces: 20, flavors: 2, price: 900, img: '/assets/menu/combo-20.webp' },
     { id: 'c30', pieces: 30, flavors: 3, price: 1400, img: '/assets/menu/combo-30.webp' },
     { id: 'c40', pieces: 40, flavors: 4, price: 1800, img: '/assets/menu/combo-40.webp' },
